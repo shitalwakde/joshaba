@@ -46,7 +46,40 @@ class PostWidget extends StatelessWidget {
             children: <Widget>[
               Row(
                 children: <Widget>[
-                  Icon(FontAwesomeIcons.thumbsUp, size: 15.0, color: Colors.blue),
+                  // Icon(FontAwesomeIcons.thumbsUp, size: 15.0, color: Colors.blue),
+                  Container(
+                    child: RawMaterialButton(
+                      child: Icon(
+                        Icons.thumb_up,
+                        color: Colors.white,
+                        size: 14,
+                      ),
+                      shape: new CircleBorder(
+                          side: BorderSide(
+                              color: Colors.white, style: BorderStyle.solid)),
+                      fillColor: Colors.blue,
+                      onPressed: () {},
+                      highlightElevation: 0,
+                    ),
+                    width: 30,
+                    // decoration: BoxDecoration(color: Colors.white),
+                  ),
+                  Container(
+                    child: RawMaterialButton(
+                        child: Icon(
+                          Icons.favorite,
+                          color: Colors.white,
+                          size: 14,
+                        ),
+                        shape: CircleBorder(
+                            side: BorderSide(
+                              color: Colors.white,
+                            )),
+                        fillColor: Colors.red,
+                        onPressed: () {}),
+                    width: 30,
+                    // color: Colors.white,
+                  ),
                   Text(' ${post.likes}'),
                 ],
               ),
