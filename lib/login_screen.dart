@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:joshaba/screen/home_screen.dart';
 import 'package:joshaba/signup_screen.dart';
+import 'package:joshaba/signupapp.dart';
 import 'bcommerce/src/Constant/Constant.dart';
 import 'model/validation_mixin.dart';
 
@@ -98,20 +99,21 @@ class LoginScreenState extends State<LoginScreen> with ValidationMixin{
 
   Widget signupButton() {
     return Container(
+      width: 250,
       height: 50,
       child: RaisedButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return SignUpApp();
+              },
+            ),
+          );
           if(formKey.currentState.validate()){
             formKey.currentState.save();
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return SignUpScreen();
-                },
-              ),
-            );
           }
         },
         child: Text("Create New Account"),
@@ -121,6 +123,7 @@ class LoginScreenState extends State<LoginScreen> with ValidationMixin{
       ),
     );
   }
+
   Widget forgotPassword(){
     return Container(
       child: FlatButton(

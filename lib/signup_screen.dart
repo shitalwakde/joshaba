@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:joshaba/app.dart';
 import 'package:joshaba/login_screen.dart';
 import 'package:joshaba/screen/home_screen.dart';
 import 'bcommerce/src/Constant/Constant.dart';
@@ -98,20 +99,22 @@ class SignUpScreenState extends State<SignUpScreen> with ValidationMixin{
 
   Widget signupButton() {
     return Container(
+      width: 250,
       height: 50,
       child: RaisedButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return App();
+              },
+            ),
+          );
           if(formKey.currentState.validate()){
             formKey.currentState.save();
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return LoginScreen();
-                },
-              ),
-            );
+
           }
         },
         child: Text("Already have an account? Login"),
@@ -121,6 +124,8 @@ class SignUpScreenState extends State<SignUpScreen> with ValidationMixin{
       ),
     );
   }
+
+
   Widget forgotPassword(){
     return Container(
       child: FlatButton(
@@ -184,7 +189,7 @@ class SignUpScreenState extends State<SignUpScreen> with ValidationMixin{
             SizedBox(height: 30),
             signupButton(),
             SizedBox(height: 10),
-            forgotPassword(),
+            //forgotPassword(),
           ],
         ),
       ),
